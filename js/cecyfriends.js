@@ -4,15 +4,25 @@ document.getElementById('toggle-btn').addEventListener('click', function() {
     const formTitle = document.getElementById('form-title');
     const toggleBtn = document.getElementById('toggle-btn');
 
-    if (loginForm.classList.contains('d-none')) {
-        loginForm.classList.remove('d-none');
-        registerForm.classList.add('d-none');
-        formTitle.textContent = 'Login';
-        toggleBtn.textContent = 'Switch to Register';
+    if (loginForm.style.opacity === '1' || loginForm.style.opacity === '') {
+        // Ocultar loginForm con una transición suave
+        loginForm.style.opacity = '0';
+        setTimeout(() => {
+            loginForm.style.visibility = 'hidden';
+            registerForm.style.visibility = 'visible';
+            registerForm.style.opacity = '1';
+            formTitle.textContent = 'Register';
+            toggleBtn.textContent = '¿Ya tienes una cuenta? Inicia sesión aquí';
+        }, 500); // Tiempo igual al de la transición de opacidad
     } else {
-        loginForm.classList.add('d-none');
-        registerForm.classList.remove('d-none');
-        formTitle.textContent = 'Register';
-        toggleBtn.textContent = 'Switch to Login';
+        // Ocultar registerForm con una transición suave
+        registerForm.style.opacity = '0';
+        setTimeout(() => {
+            registerForm.style.visibility = 'hidden';
+            loginForm.style.visibility = 'visible';
+            loginForm.style.opacity = '1';
+            formTitle.textContent = 'Login';
+            toggleBtn.textContent = '¿No tienes una cuenta? Regístrate aquí';
+        }, 500); // Tiempo igual al de la transición de opacidad
     }
 });

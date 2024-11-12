@@ -3,16 +3,17 @@
     --primary-color: #EC8305;
     --secondary-color: #178D51;
     --background-color: #F9F6E7;
-    --text-color: #000000;
+    --text-color: #333333;
     --font-title: 'Libre Baskerville', serif;
     --font-body: 'M PLUS Rounded 1c', sans-serif;
 }
 
-/* Normalización para el uso de rems */
+/* Configuración básica */
 html {
-    font-size: 62.5%; /* 1rem = 10px */
+    font-size: 62.5%;
     box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
@@ -25,27 +26,41 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    font-size: 1.6rem; /* 16px */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    font-size: 1.6rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h3 {
     font-family: var(--font-title);
 }
 
+/* Estilo de la tarjeta */
 .card {
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .card-header {
     background-color: var(--primary-color);
-    color: var(--background-color);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.card-body {
+    background-color: white;
+    padding: 2rem;
+}
+
+.card-footer {
+    background-color: #f1f1f1;
+    padding: 1rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .btn-primary {
@@ -54,18 +69,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-    background-color: darken(var(--secondary-color), 10%);
+    background-color: #145E3D;
 }
 
 .form-control {
     border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    font-size: 1.6rem; /* Tamaño de fuente aumentado */
+    height: 4rem; /* Altura incrementada para hacer los campos más grandes */
 }
 
-.container {
-    padding-top: 5rem;
+/* Texto alternativo para el botón */
+.btn-link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--secondary-color);
 }
 
-.card-footer {
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+#login-form, #register-form {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#register-form {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute; /* Evita el desplazamiento del contenido */
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+/* Ajustes de espaciado en dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+    }
 }
