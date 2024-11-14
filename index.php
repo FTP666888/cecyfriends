@@ -17,7 +17,7 @@
                         <h3 id="form-title">Login</h3>
                     </div>
                     <div class="card-body p-4">
-                        <form id="login-form" action="" method="post">
+                    <form id="login-form" action="" method="post" style="display: block;">
                             <div class="form-group">
                                 <label for="login-email">Email Institucional</label>
                                 <input type="email" class="form-control" id="login-email" placeholder="Ingresa tu email">
@@ -28,10 +28,16 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
                         </form>
-                        <form id="register-form" class="d-none" action="" method="post">
+                        <form id="register-form" action="" method="post" style="display: none;">
                             <div class="form-group">
                                 <label for="register-email">Email Institucional</label>
-                                <input type="email" class="form-control" id="register-email" placeholder="Ingresa tu email" required>
+                                <input type="email" class="form-control" id="register-email" name="register-email" 
+                                    placeholder="Ingresa tu email" required 
+                                    title="Por favor, ingrese un correo institucional que termine en @cecyteq.edu.mx">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-phone">Número de Teléfono</label>
+                                <input type="tel" class="form-control" id="register-phone" name="register-phone" placeholder="Ingresa tu número de teléfono" minlength="10" maxlength="10" pattern="[0-9]{10}" title="Debe tener 10 dígitos">
                             </div>
                             <div class="form-group">
                                 <label for="register-password">Contraseña</label>
@@ -52,6 +58,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
-    <script src="/js/cecyfriends.js"></script>
+    <script src="js/cecyfriends.js"></script>
 </body>
 </html>
